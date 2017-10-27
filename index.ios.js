@@ -1,7 +1,8 @@
 import React from "react";
 import {NativeModules, requireNativeComponent, StyleSheet, View} from "react-native";
+import PropTypes from 'prop-types';
 
-const {func, number, string} = React.PropTypes;
+const {func, number, string} = PropTypes;
 const SketchManager = NativeModules.RNSketchManager || {};
 const BASE_64_CODE = 'data:image/png;base64,';
 const styles = StyleSheet.create({
