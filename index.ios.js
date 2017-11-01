@@ -1,7 +1,8 @@
 import React from "react";
-import {NativeModules, requireNativeComponent, StyleSheet, View} from "react-native";
+import {NativeModules, requireNativeComponent, StyleSheet, View, ViewPropTypes} from "react-native";
 import PropTypes from 'prop-types';
-
+//Fallback when RN version is < 0.44
+const viewPropTypes = ViewPropTypes || View.propTypes;
 const {func, number, string} = PropTypes;
 const SketchManager = NativeModules.RNSketchManager || {};
 const BASE_64_CODE = 'data:image/png;base64,';
@@ -18,7 +19,7 @@ export default class Sketch extends React.Component {
     onUpdate: func,
     strokeColor: string,
     strokeThickness: number,
-    style: View.propTypes.style,
+    style: viewPropTypes.style,
   };
 
   static defaultProps = {
